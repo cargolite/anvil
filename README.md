@@ -1,16 +1,16 @@
 # Carglite Anvil
 
-Anvil is an opinionated PHP code style fixer for minimalists, forked from Laravel Pint, which itself is built on top of **[PHP-CS-Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer)** and makes it simple to ensure that your code style stays **clean** and **consistent**.
+Anvil is an opinionated PHP code style fixer for minimalists, forked from [Laravel Pint](https://laravel.com/docs/master/pint), which itself is built on top of **[PHP-CS-Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer)** and makes it simple to ensure that your code style stays **clean** and **consistent**.
 
-> *anvil (non)* — a heavy iron block with a flat top and concave sides, on which metal can be hammered and shaped.
+> ***anvil** (noun)*
+>
+> — a heavy iron block with a flat top and concave sides, on which metal can be hammered and shaped.
 
 ## Documentation
 
-The only difference between Pint and Anvil is the ability to specify which indentation styles and line-endings you prefer. By default, indentation is four spaces, so a configuration file needs to be created to use the recommended Cargolite guideline of two spaces.
+The primary difference between Pint and Anvil is the ability to specify which indentation styles and line-endings you prefer. By default, indentation is four spaces, so a configuration file needs to be created to use the recommended Cargolite guideline of two spaces.
 
 > The recommended anvil.json file is at the end of this readme.
-
-Documentation for Pint can be found on the [Laravel website](https://laravel.com/docs/pint).
 
 ### Installation
 
@@ -24,6 +24,70 @@ At the time of writing, Cargolite does not use Packagist or such-like service fo
   "url": "https://github.com/cargolite/anvil"
 }
 ```
+
+### Usage
+
+To format your entire codebase:
+
+```shell
+$ vendor/bin/anvil
+```
+
+To format specific files or directories:
+
+```shell
+$ vendor/bin/anvil cargolite/Models # directory
+$ vendor/bin/anvil cargolite/Models/Shipment.php # specific file
+```
+
+Anvil will display a thorough list of all of the files that it updates. You can view even more detail about Anvil's changes by providing the `-v` option:
+
+```shell
+$ vendor/bin/anvil -v
+```
+
+If you would like Anvil to simply inspect your code for style errors without actually changing the files, you may use the --test option. Anvil will return a non-zero exit code if any code style errors are found:
+
+```shell
+$ vendor/bin/anvil --test
+```
+
+If you would like Anvil to only modify the files that have uncommitted changes according to Git, you may use the --dirty option:
+
+```shell
+$ vendor/bin/anvil --dirty
+```
+
+> NOTE: Cargolite's repositories are mostly Docker based. Running the command inside a container will not work, as there is no git there.
+
+If you would like Anvil to fix any files with code style errors but also exit with a non-zero exit code if any errors were fixed, you may use the --repair option:
+
+```shell
+$ vendor/bin/anvil --repair
+```
+
+It's recommended to have Anvil format your files on save. If your IDE supports this, either by way of baked-in functionality or otherwise a plugin, please direct it to the `anvil` binary.
+
+For example, Visual Studio Code does not have the ability to run arbitrary commands on save, and so a package named [Run on Save](https://marketplace.visualstudio.com/items?itemName=emeraldwalk.RunOnSave) helps with this. Once installed, you can update your workspace configuration file with the following:
+
+```json
+{
+  "settings": {
+    "emeraldwalk.runonsave": {
+      "commands": [
+        {
+          "match": ".php",
+          "cmd": "vendor/bin/anvil ${relativeFile}"
+        }
+      ]
+    }
+  }
+}
+```
+
+There is also a similar package [here](https://marketplace.visualstudio.com/items?itemName=pucelle.run-on-save).
+
+Further documentation can be read over on the Laravel website: [Pint Docs](https://laravel.com/docs/master/pint)
 
 ## License
 
