@@ -56,7 +56,7 @@ class ConfigurationJsonRepository
      */
     public function indent()
     {
-        return $this->get()['indent'] ?? '  ';
+        return $this->get()['indent'] ?? '    ';
     }
 
     /**
