@@ -1,4 +1,4 @@
-# Carglite Anvil
+# Anvil
 
 Anvil is an opinionated PHP code style fixer for minimalists, forked from [Laravel Pint](https://laravel.com/docs/master/pint), which itself is built on top of **[PHP-CS-Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer)** and makes it simple to ensure that your code style stays **clean** and **consistent**.
 
