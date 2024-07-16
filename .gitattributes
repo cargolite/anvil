@@ -22,8 +22,8 @@
 /config export-ignore
 /phpstan.neon export-ignore
 /phpunit.xml.dist export-ignore
-/pint export-ignore
-/pint.json export-ignore
+/anvil export-ignore
+/anvil.json export-ignore
 /resources export-ignore
 /src export-ignore
 /storage export-ignore

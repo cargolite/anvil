@@ -1,22 +1,25 @@
 {
-    "name": "laravel/pint",
+    "name": "cargolite/anvil",
     "description": "An opinionated code formatter for PHP.",
     "keywords": ["php", "format", "formatter", "lint", "linter"],
-    "homepage": "https://laravel.com",
     "type": "project",
     "license": "MIT",
     "support": {
-        "issues": "https://github.com/laravel/pint/issues",
-        "source": "https://github.com/laravel/pint"
+        "issues": "https://github.com/cargolite/anvil/issues",
+        "source": "https://github.com/cargolite/anvil"
     },
     "authors": [
         {
             "name": "Nuno Maduro",
             "email": "enunomaduro@gmail.com"
+        },
+        {
+            "name": "Mike Rockétt",
+            "email": "mike.rockett@megafreight.co.za"
         }
     ],
     "require": {
-        "php": "^8.1.0",
+        "php": "^8.2.0",
         "ext-json": "*",
         "ext-mbstring": "*",
         "ext-tokenizer": "*",
@@ -33,9 +36,7 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "app/",
-            "Database\\Factories\\": "database/factories/",
-            "Database\\Seeders\\": "database/seeders/"
+            "App\\": "app/"
         }
     },
     "autoload-dev": {
@@ -57,5 +58,5 @@
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
-    "bin": ["builds/pint"]
+    "bin": ["builds/anvil"]
 }
