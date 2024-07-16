@@ -16,6 +16,15 @@ Documentation for Pint can be found on the [Laravel website](https://laravel.com
 
 You can install the package using `composer require cargolite/anvil --dev`
 
+At the time of writing, Cargolite does not use Packagist or such-like service for first-party packages. Ideally, GitHub should provide a mechanism for this, failing which we will host our own at some point. But for now, you will need to add the below to the `repositories` section of your `composer.json` file in order for the `require` command to work:
+
+```json
+{
+  "type": "github",
+  "url": "https://github.com/cargolite/anvil"
+}
+```
+
 ## License
 
 Like Pint, Anvil is open-sourced software licensed under the [MIT license](LICENSE.md).
