@@ -42,7 +42,7 @@ class ConfigurationFactory
      */
     public static function preset($rules)
     {
-        return (new Config())
+        return (new Config)
             ->setParallelConfig(ParallelConfigFactory::detect())
             ->setFinder(self::finder())
             ->setIndent(resolve(ConfigurationJsonRepository::class)->indent())

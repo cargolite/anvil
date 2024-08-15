@@ -21,6 +21,7 @@ class ConfigurationResolverFactory
         'per',
         'psr12',
         'symfony',
+        'empty',
     ];
 
     /**
@@ -70,7 +71,7 @@ class ConfigurationResolverFactory
                 'show-progress' => 'true',
             ],
             Project::path(),
-            new ToolInfo(),
+            new ToolInfo,
         );
 
         $totalFiles = count(new ArrayIterator(iterator_to_array(
