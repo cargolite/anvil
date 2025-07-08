@@ -139,7 +139,7 @@ class ConfigurationJsonRepository
         $extended = json_decode(file_get_contents($path), true);
 
         if (isset($extended['extend'])) {
-            throw new \LogicException('Pint configuration cannot extend from more than 1 file.');
+            throw new \LogicException('Anvil configuration cannot extend from more than 1 file.');
         }
 
         return array_replace_recursive($extended, $configuration);

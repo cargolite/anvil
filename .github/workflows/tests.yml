@@ -53,7 +53,7 @@ jobs:
         run: ./anvil --test
 
       - name: Execute lint tests in parallel with Laravel preset
-        run: ./pint --parallel --test
+        run: ./anvil --parallel --test
 
       - name: Execute static analysis
         run: vendor/bin/phpstan

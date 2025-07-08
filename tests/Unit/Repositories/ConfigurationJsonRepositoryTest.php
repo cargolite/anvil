@@ -60,7 +60,7 @@ it('may have lineEnding option', function () {
 });
 
 it('properly extend the base config file', function () {
-    $repository = new ConfigurationJsonRepository(dirname(__DIR__, 2).'/Fixtures/extend/pint.json', null);
+    $repository = new ConfigurationJsonRepository(dirname(__DIR__, 2).'/Fixtures/extend/anvil.json', null);
 
     expect($repository->preset())->toBe('laravel')
         ->and($repository->rules())->toBe([
@@ -83,7 +83,7 @@ it('properly extend the base config file', function () {
 });
 
 it('throw an error if the extended configuration also has an extend', function () {
-    $repository = new ConfigurationJsonRepository(dirname(__DIR__, 2).'/Fixtures/extend_recursive/pint.json', null);
+    $repository = new ConfigurationJsonRepository(dirname(__DIR__, 2).'/Fixtures/extend_recursive/anvil.json', null);
 
     $repository->finder();
 })->throws(LogicException::class);
