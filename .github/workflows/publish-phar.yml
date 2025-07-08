@@ -9,6 +9,9 @@ on:
         description: 'Tag release version'
         required: true
 
+permissions:
+  contents: write
+
 jobs:
   publish:
     runs-on: ubuntu-22.04
@@ -45,7 +48,7 @@ jobs:
         run: ./anvil app:build anvil.phar --build-version=${{ steps.tag.outputs.tag }}
 
       - name: Upload the PHAR artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: anvil.phar
           path: builds/anvil.phar

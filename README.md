@@ -87,6 +87,12 @@ For example, Visual Studio Code does not have the ability to run arbitrary comma
 
 There is also a similar package [here](https://marketplace.visualstudio.com/items?itemName=pucelle.run-on-save).
 
+You may also want to use a Docker-based implementation that watches for file changes and applies formatting automatically. Provided `inotify-tools` is installed, you can run the following command as a separate container:
+
+```shell
+/bin/sh -c 'file=""; inotifywait -m -r -e close_write -e create --format "%w%f" --include "\.php$" ./ | while read -r file; do if [ -n "$$file" ]; then vendor/bin/anvil "$$file"; fi; done'
+```
+
 Further documentation can be read over on the Laravel website: [Pint Docs](https://laravel.com/docs/master/pint)
 
 ## License
@@ -101,18 +107,10 @@ Like Pint, Anvil is open-sourced software licensed under the [MIT license](LICEN
   "preset": "per",
   "rules": {
     "@PER-CS2.0": true,
-    "array_indentation": true,
     "array_push": true,
-    "array_syntax": {
-      "syntax": "short"
-    },
     "attribute_empty_parentheses": true,
     "backtick_to_shell_exec": true,
     "declare_strict_types": false,
-    "function_declaration": {
-      "closure_fn_spacing": "one",
-      "closure_function_spacing": "one"
-    },
     "global_namespace_import": {
       "import_classes": true,
       "import_constants": true,
@@ -147,16 +145,20 @@ Like Pint, Anvil is open-sourced software licensed under the [MIT license](LICEN
       ],
       "sort_algorithm": "none"
     },
-    "ordered_imports": true,
     "ordered_interfaces": true,
     "ordered_traits": true,
     "protected_to_private": true,
     "return_assignment": true,
     "self_static_accessor": true,
-    "single_import_per_statement": true,
+    "simplified_if_return": true,
     "single_quote": true,
     "ternary_to_null_coalescing": true,
-    "trailing_comma_in_multiline": true
+    "yoda_style": {
+      "equal": false,
+      "identical": false,
+      "less_and_greater": false
+    }
   }
 }
+
 ```
